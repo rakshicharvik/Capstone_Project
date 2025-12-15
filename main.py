@@ -33,7 +33,7 @@ def ask_ques(payload: QueryRequest):
     is_crop = any(crop in questions for crop in crops)
     is_harvest_intent = any(k in questions for k in intent_keywords)
 
-    if is_crop and is_harvest_intent:
+    if is_crop or is_harvest_intent:
         ans = llm_answer(payload.question)
 
     else:
